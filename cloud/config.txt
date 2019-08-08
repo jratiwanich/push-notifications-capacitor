@@ -1,0 +1,13 @@
+FCM:
+
+Server Key:
+AAAAlG1hR1I:APA91bHV8tcBCJmPVy2_kymV-MRSSdaOp6Zm5fSbx2Zn91vBRRURcBrqI2RYFn-VPTHdwraBlsrdKEa1mCVYD1XMn3S5W0eEDvVERcCmZz4L3ow40Rfei3CylZKjadPormv2WrQmC3nC
+
+Sender ID:
+637490251602
+
+ ionic plugin add phonegap-plugin-push --variable SENDER_ID=637490251602
+ 
+
+AWS:
+

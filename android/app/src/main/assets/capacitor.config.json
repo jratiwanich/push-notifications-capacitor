@@ -1,0 +1,7 @@
+{
+  "appId": "com.testme.pushapp",
+  "appName": "PushApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
