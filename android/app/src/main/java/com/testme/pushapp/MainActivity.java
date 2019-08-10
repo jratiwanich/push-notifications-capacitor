@@ -1,4 +1,4 @@
-package com.dolosplus.pushapp;
+package com.testme.pushapp;
 
 import android.os.Bundle;
 

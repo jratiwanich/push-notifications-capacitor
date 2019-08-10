@@ -1,3 +1,5 @@
+#Push Notification App for Firebase - iOS and Android
+
 1) Install Capacitor
 
 npm install --save @capacitor/core @capacitor/cli
@@ -17,3 +19,5 @@ ionic cordova plugin add cordova-support-google-services --save
 3) Sync plugins with native
 npx cap sync
 
+Follow this article:
+https://capacitor.ionicframework.com/docs/guides/push-notifications-firebase/

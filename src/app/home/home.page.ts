@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
+import {
+  Plugins,
+  PushNotification,
+  PushNotificationToken,
+  PushNotificationActionPerformed } from '@capacitor/core';
 
 import {PushNotificationService} from '../services/push-notification.service'
+
+const { PushNotifications } = Plugins;
 
 @Component({
   selector: 'app-home',
@@ -10,13 +17,53 @@ import {PushNotificationService} from '../services/push-notification.service'
 })
 export class HomePage implements OnInit {
 
-  constructor(private push: Push, private pushsrv: PushNotificationService) {
+  constructor(private push: Push, 
+              private pushsrv: PushNotificationService) {
    
   }
 
   ngOnInit(){
-    this.initPushNotification();
+   // this.initPushNotification();
+    this.initCordovaPushNotification();
+  }
 
+  initCordovaPushNotification(){
+      console.log('Initializing HomePage');
+
+    // Register with Apple / Google to receive push via APNS/FCM
+    PushNotifications.register();
+
+    // On succcess, we should be able to receive notifications
+    PushNotifications.addListener('registration', 
+      (token: PushNotificationToken) => {
+        console.warn('Push registration success, token: ' + token.value);
+        alert('Push registration success, token: ' + token.value);
+      }
+    );
+
+    // Some issue with our setup and push will not work
+    PushNotifications.addListener('registrationError', 
+      (error: any) => {
+        console.warn('Error on registration: ' + JSON.stringify(error));
+        alert('Error on registration: ' + JSON.stringify(error));
+      }
+    );
+
+    // Show us the notification payload if the app is open on our device
+    PushNotifications.addListener('pushNotificationReceived', 
+      (notification: PushNotification) => {
+        console.warn('Push received: ' + JSON.stringify(notification));
+        alert('Push received: ' + JSON.stringify(notification));
+      }
+    );
+
+    // Method called when tapping on a notification
+    PushNotifications.addListener('pushNotificationActionPerformed', 
+      (notification: PushNotificationActionPerformed) => {
+        console.warn('Push action performed: ' + JSON.stringify(notification));
+        alert('Push action performed: ' + JSON.stringify(notification));
+      }
+    );
   }
 
   initPushNotification(){

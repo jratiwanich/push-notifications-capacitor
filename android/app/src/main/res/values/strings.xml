@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">PushApp</string>
     <string name="title_activity_main">PushApp</string>
-    <string name="package_name">com.dolosplus.pushapp</string>
-    <string name="fileprovider_authority">com.dolosplus.pushapp.fileprovider</string>
-    <string name="custom_url_scheme">com.dolosplus.pushapp</string>
+    <string name="package_name">com.testme.pushapp</string>
+    <string name="fileprovider_authority">com.testme.pushapp.fileprovider</string>
+    <string name="custom_url_scheme">com.testme.pushapp</string>
 </resources>
